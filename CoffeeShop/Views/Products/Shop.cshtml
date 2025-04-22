@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffee Shop</title>
+</head>
+<body>
+    <h1>Shop Coffee</h1>
+    @foreach (var item in Model)
+    {
+        <img width="100" src="@item.ImageUrl" />
+        <h3>@item.Name</h3>
+        <p>@item.Price.ToString("C")</p>
+    }
+</body>
+</html>
