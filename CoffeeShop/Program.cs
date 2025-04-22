@@ -1,5 +1,7 @@
+using CoffeeShop.Data;
 using CoffeeShop.Models.Interfaces;
 using CoffeeShop.Models.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,9 @@ builder.Services.AddControllersWithViews();
 
 // Add code
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddDbContext<CoffeeShopDbContext>(option =>
+option.UseSqlServer(builder.Configuration.GetConnectionString("CoffeeShopDbContextConnection")));
 
 var app = builder.Build();
 
