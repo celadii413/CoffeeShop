@@ -6,7 +6,7 @@ namespace CoffeeShop.Data
 {
     public class CoffeeShopDbContext : DbContext
     {
-        public CoffeeShopDbContext(DbContextOptions<CoffeeShopDbContext> options) :base(options)
+        public CoffeeShopDbContext(DbContextOptions<CoffeeShopDbContext> options) : base(options)
         {
 
         }

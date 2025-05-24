@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoffeeShop.Migrations
 {
     [DbContext(typeof(CoffeeShopDbContext))]
-    [Migration("20250422021508_seeddata")]
+    [Migration("20250524085932_seeddata")]
     partial class seeddata
     {
         /// <inheritdoc />

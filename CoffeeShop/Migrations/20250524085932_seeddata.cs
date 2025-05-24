@@ -5,7 +5,7 @@
 namespace CoffeeShop.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstCreate1 : Migration
+    public partial class seeddata : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,4 +20,3 @@ namespace CoffeeShop.Migrations
         }
     }
 }
-
