@@ -104,6 +104,39 @@ namespace CoffeeShop.Migrations
                             Price = 35m
                         });
                 });
+
+            modelBuilder.Entity("CoffeeShop.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ProductIdId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductIdId");
+
+                    b.ToTable("ShoppingCartItems");
+                });
+
+            modelBuilder.Entity("CoffeeShop.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("CoffeeShop.Models.Product", "ProductId")
+                        .WithMany()
+                        .HasForeignKey("ProductIdId");
+
+                    b.Navigation("ProductId");
+                });
 #pragma warning restore 612, 618
         }
     }
