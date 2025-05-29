@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var cartCount = HttpContextAccessor?.HttpContext?.Session.GetInt32("CartCount") ?? 0;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
