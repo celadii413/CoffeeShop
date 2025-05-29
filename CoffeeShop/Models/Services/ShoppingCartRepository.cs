@@ -69,6 +69,7 @@ namespace CoffeeShop.Models.Services
             return ShoppingCartItems ??= dbContext.ShoppingCartItems.Where(s =>
             s.ShoppingCartId == ShoppingCartId).Include(p => p.Product).ToList();
         }
+
         public decimal GetShoppingCartTotal()
         {
             var totalCost = dbContext.ShoppingCartItems.Where(s => s.ShoppingCartId ==

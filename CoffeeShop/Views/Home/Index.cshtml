@@ -1,64 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
 @model IEnumerable<CoffeeShop.Models.Product>
-
-<section data-bs-version="5.1" class="menu menu3 cid-tsEQosCCDP" once="menu" id="menu3-0">
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-        <div class="container">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a asp-controller="Home" asp-action="Index">
-                        <img src="~/assets/images/coffee-icon-sign-symbol-design-free-png.webp" alt="Coffee Shop"
-                             style="height: 3rem;">
-                    </a>
-                </span>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
-                    data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                    <li class="nav-item">
-                        <a class="nav-link link text-black show display-4"
-                           asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black show display-4"
-                           asp-controller="Products" asp-action="Shop">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black show display-4"
-                           asp-controller="Contact" asp-action="AddContact">Contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link link text-black dropdown-toggle show display-4"
-                           data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                           aria-expanded="false">
-                            <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>
-                        </a>
-                        <div class="dropdown-menu show" aria-labelledby="dropdown-751" data-bs-popper="none">
-                            <a class="text-black show dropdown-item display-4" href="">Register</a>
-                            <a class="text-black show dropdown-item display-4" href="">Login</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black show display-4" asp-controller="ShoppingCart" asp-action="Index">
-                            <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"><small>(0)</small></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</section>
 
 <section data-bs-version="5.1" class="header18 cid-tsEQyIZRcx mbr-fullscreen mbr-parallax-background"
          id="header18-1">
@@ -108,7 +52,7 @@
                         <div class="item-wrapper">
                             <div class="item-img">
                                 <img src="@item.ImageUrl" alt="Coffee Shop"
-                                     title="">
+                                     title="@item.Name">
                             </div>
                             <div class="item-content">
                                 <a asp-controller="Products" asp-action="Detail" asp-route-id="@item.Id" target="_self">
@@ -117,9 +61,11 @@
                                 <p class="mbr-text mbr-fonts-style mt-3 display-7">@item.Price.ToString("C")</p>
                             </div>
                             <div class="mbr-section-btn item-footer mt-2">
-                                <a href=""
-                                   class="btn item-btn btn-primary display-4" target="_self">
-                                    <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart&nbsp;
+                                <a asp-controller="ShoppingCart"
+                                   asp-action="AddToShoppingCart"
+                                   asp-route-pId="@item.Id"
+                                   class="btn item-btn btn-primary display-4">
+                                    <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span> Add to cart
                                 </a>
                             </div>
                         </div>
@@ -127,7 +73,6 @@
                 }
             </div>
         </div>
-    </div>
 </section>
 
 

@@ -34,9 +34,65 @@
     <link rel="stylesheet" href="~/assets/mobirise/css/mbr-additional.css" type="text/css">
 </head>
 
+<section data-bs-version="5.1" class="menu menu3 cid-tsEQosCCDP" once="menu" id="menu3-0">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img src="~/assets/images/coffee-icon-sign-symbol-design-free-png.webp" alt="Coffee Shop"
+                             style="height: 3rem;">
+                    </a>
+                </span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
+                    data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-black show display-4"
+                           asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black show display-4"
+                           asp-controller="Products" asp-action="Shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black show display-4"
+                           asp-controller="Contact" asp-action="AddContact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link link text-black dropdown-toggle show display-4"
+                           data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                           aria-expanded="false">
+                            <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>
+                        </a>
+                        <div class="dropdown-menu show" aria-labelledby="dropdown-751" data-bs-popper="none">
+                            <a class="text-black show dropdown-item display-4" href="">Register</a>
+                            <a class="text-black show dropdown-item display-4" href="">Login</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black show display-4" asp-controller="ShoppingCart" asp-action="Index">
+                            <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"><small>(@cartCount)</small></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
     <body>
         @RenderBody()
-
         <script src="~/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="~/assets/parallax/jarallax.js"></script>
         <script src="~/assets/smoothscroll/smooth-scroll.js"></script>

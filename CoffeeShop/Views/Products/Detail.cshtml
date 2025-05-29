@@ -39,64 +39,6 @@
 
 <body>
 
-    <section data-bs-version="5.1" class="menu menu3 cid-tsEQosCCDP" once="menu" id="menu3-0">
-        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-            <div class="container">
-                <div class="navbar-brand">
-                    <span class="navbar-logo">
-                        <a asp-controller="Home" asp-action="Index">
-                            <img src="~/assets/images/coffee-icon-sign-symbol-design-free-png.webp" alt="Coffee Shop"
-                                 style="height: 3rem;">
-                        </a>
-                    </span>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
-                        data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                        <li class="nav-item">
-                            <a class="nav-link link text-black show display-4"
-                               asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link text-black show display-4"
-                               asp-controller="Products" asp-action="Shop">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link text-black show display-4"
-                               asp-controller="Contact" asp-action="AddContact">Contact</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link link text-black dropdown-toggle show display-4"
-                               data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                               aria-expanded="false">
-                                <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>
-                            </a>
-                            <div class="dropdown-menu show" aria-labelledby="dropdown-751" data-bs-popper="none">
-                                <a class="text-black show dropdown-item display-4" href="">Register</a>
-                                <a class="text-black show dropdown-item display-4" href="">Login</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link text-black show display-4" asp-controller="ShoppingCart" asp-action="Index">
-                                <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"><small>(0)</small></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-
-
     <br>
     <br>
     <br>
@@ -114,23 +56,20 @@
                 <div class="col-12 col-lg">
                     <div class="text-box">
                         <h5 class="mbr-title mbr-fonts-style display-2">
-                            <strong>Special Offer</strong>
+                            <strong>@Model.Name</strong>
                         </h5>
                         <p class="mbr-text mbr-fonts-style display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Proin euismod, velit vel bibendum bibendum, quam velit dictum nibh, quis facilisis
-                            lorem sem eget ante. Aliquam erat volutpat. Integer id semper leo. Sed tincidunt enim eget
-                            nulla varius, et tincidunt mauris ornare. Sed aliquet aliquet risus, vitae accumsan ligula
-                            congue eu. Sed euismod, risus a faucibus tempus, est erat malesuada augue, euismod euismod
-                            massa quam a magna. Integer id ante id ipsum tincidunt bibendum. Sed euismod, risus a
-                            faucibus tempus, est erat malesuada augue, euismod euismod massa quam a magna.
+                            @Model.Name
                         </p>
                         <div class="cost">
-                            <span class="currentcost mbr-fonts-style pr-2 display-2">$69</span>
+                            <span class="currentcost mbr-fonts-style pr-2 display-2">@Model.Price.ToString("c")</span>
                         </div>
-                        <div class="mbr-section-btn pt-3">
-                            <a href="" class="btn btn-primary display-4">
-                                <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart&nbsp;
+                        <div class="mbr-section-btn item-footer mt-2">
+                            <a asp-controller="ShoppingCart"
+                               asp-action="AddToShoppingCart"
+                               asp-route-pId="@Model.Id"
+                               class="btn item-btn btn-primary display-4">
+                                <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span> Add to cart
                             </a>
                         </div>
                     </div>
