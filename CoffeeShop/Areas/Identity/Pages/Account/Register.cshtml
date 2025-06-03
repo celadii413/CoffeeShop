@@ -3,11 +3,13 @@
 @{
     ViewData["Title"] = "Register";
 }
-
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4" justify-content-center align-items-center>
+</br>
+</br>
+</br>
+<h1 class="text-center">@ViewData["Title"]</h1>
+</br>
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
@@ -31,7 +33,9 @@
         </form>
     </div>
 </div>
-
+</br>
+</br>
+</br>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
