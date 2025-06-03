@@ -23,6 +23,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IShoppingCartRepository>(sp => ShoppingCartRepository.GetCart(sp));
+builder.Services.AddScoped<IContactMessageRepository, ContactMessageRepository>();
 
 var app = builder.Build();
 
