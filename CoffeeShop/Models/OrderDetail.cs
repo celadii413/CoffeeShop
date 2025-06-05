@@ -1,4 +1,5 @@
-﻿namespace CoffeeShop.Models
+﻿
+namespace CoffeeShop.Models
 {
     public class OrderDetail
     {

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CoffeeShop.Models.Order>
+
+@{
+    ViewData["Title"] = "Your Orders";
+}
+
+<h1 class="text-center pt-5">List your orders</h1>
+
+<div class="container mt-4">
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info text-center" role="alert">
+            @ViewBag.Message
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Stt</th>
+                        <th>Time order</th>
+                        <th>Detail</th>
+                        <th>Shipping Address</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int stt = 1;
+                    }
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td>@(stt++)</td>
+                            <td>@order.OrderPlaced.ToString("dd/MM/yyyy h:mm tt")</td>
+                            <td>
+                                @if (order.OrderDetails != null && order.OrderDetails.Any())
+                                {
+                                    @foreach (var detail in order.OrderDetails)
+                                    {
+                                        <div class="d-flex align-items-center mb-2">
+                                            @if (!string.IsNullOrEmpty(detail.Product?.ImageUrl))
+                                            {
+                                                <img src="@detail.Product.ImageUrl" alt="@detail.Product.Name" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                                            }
+                                            <span>@detail.Quantity x @detail.Product?.Name - @detail.Price.ToString("C")</span>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <span>No details available.</span>
+                                }
+                            </td>
+                            <td>@order.Address</td>
+                            <td>@order.OrderTotal.ToString("C")</td>
+                            <td>@order.OrderStatus</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

@@ -1,59 +1,47 @@
 ﻿@model CoffeeShop.Models.Order
 
 <form asp-action="Checkout" method="post" role="form">
-    <section data-bs-version="5.1" class="form6 cid-tsFfsp7eqK" id="form6-n">
+    @Html.AntiForgeryToken() <section data-bs-version="5.1" class="form6 cid-tsFfsp7eqK" id="form6-n">
         <div class="container">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
             <div class="mt-5">
-                <!-- Checkout Panel Information-->
                 <div class="d-flex justify-content-between align-itemscenter mb-4 border-bottom pb-4">
                     <h3 class="fs-5 fw-bolder m-0 lh-1">
-                        Shipping
-                        Address
+                        Shipping Address
                     </h3>
                 </div>
                 <div class="row">
-                    <!-- First Name-->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label asp-for="FirstName" class="formlabel">First name</label>
-                            <input asp-for="FirstName" type="text"
-                                   class="form-control" placeholder="" value="" required="">
+                            <label asp-for="FirstName" class="form-label">First name</label> <input asp-for="FirstName" type="text"
+                                                                                                    class="form-control" placeholder="" required /> <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                     </div>
-                    <!-- Last Name-->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label asp-for="LastName" class="formlabel">Last name</label>
-                            <input asp-for="LastName" type="text"
-                                   class="form-control" id="lastNameBilling" placeholder="" value=""
-                                   required="">
+                            <label asp-for="LastName" class="form-label">Last name</label> <input asp-for="LastName" type="text"
+                                                                                                  class="form-control" placeholder="" required />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
-                    <!-- Email-->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label asp-for="Email" class="formlabel">Email</label>
-                            <input type="email" class="form-control" aspfor="Email" placeholder="">
+                            <label asp-for="Email" class="form-label">Email</label> <input type="email" class="form-control" asp-for="Email" placeholder="" /> <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
-                    <!-- Email-->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="phone" class="formlabel">Phone</label>
-                            <input type="tel" class="form-control"
-                                   id="phone" placeholder="">
+                            <label asp-for="Phone" class="form-label">Phone</label> <input type="tel" class="form-control" asp-for="Phone" placeholder="" /> <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                     </div>
-                    <!-- Address-->
                     <div class="col-12">
                         <div class="form-group">
-                            <label asp-for="Address" class="formlabel">Address</label>
-                            <input type="text" class="form-control" aspfor="Address" placeholder="123 Some Street Somewhere">
+                            <label asp-for="Address" class="form-label">Address</label> <input type="text" class="form-control" asp-for="Address" placeholder="123 Some Street Somewhere" required /> <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                     </div>
-                    <!-- Address-->
                 </div>
-                <div class="col-auto mbr-section-btn align-center">
+                <div class="col-auto mbr-section-btn align-center mt-4">
                     <button type="submit" class="btn btn-primary display-4">
                         Place Order
                     </button>
@@ -62,3 +50,9 @@
         </div>
     </section>
 </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
